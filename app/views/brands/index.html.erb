@@ -1,0 +1,14 @@
+<h5 class ="page_header">All Brands</h5>
+<p class="no_float">
+  <p> <%= link_to "Add New Book",  new_book_path, method: :get %> </p>
+  <p> <%= link_to "See All Books",  books_path, method: :get %> </p>
+  <p> <%= link_to "Create New Brand", new_brand_path, method: :get %> </p>
+</p>
+<ul>
+  <% @brands.each do |brand| %>
+  <li class=brand_<%= brand.id %>>
+  <%= brand.name %><br>
+  <small> <%= link_to "Delete", brand_path(brand), method: "delete" %></small>
+</li>
+  <% end %>
+</ul>

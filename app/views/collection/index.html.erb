@@ -1,0 +1,19 @@
+<h3 class="page_header">All Books in <%= current_user.username %>'s Collection</h3>
+
+<% if current_user.books.present? %>
+<h1>HERE ARE YOUR BOOKS</h1>
+<% @books.each do |book| %>
+<div class="col s4">
+  <div class="book_preview">
+    <%= link_to book.title, book_path(book) %><br>
+
+    Brand: <small> <%= book.brand.name %> </small><br>
+    Series:<small> <%= book.series.name %><br> </small>
+    Issue: <%= book.issue_number %><br>
+    <%= image_tag book.img_url, :class => "img_preview" %><br>
+  </div>
+</div>
+<% end %>
+<% else %>
+<h1>Add Some Books to your Collection</h1>
+<% end %>

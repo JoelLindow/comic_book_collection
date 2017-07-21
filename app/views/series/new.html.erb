@@ -1,0 +1,8 @@
+<h3>Create a new Series at <%= @series.name %> here!</h3>
+
+<%= form_for @series do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.submit %>
+<% end %>

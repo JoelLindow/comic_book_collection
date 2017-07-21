@@ -1,14 +1,71 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>ComicBookCollection</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <title>ComicBookCollection</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <ul id="dropdown_books" class="dropdown-content">
+    <li> <%= link_to "All Books", books_path %> </li>
+    <% if current_user %>
+    <li> <%= link_to "Your Books", collection_path %></li>
+    <li class="divider"></li>
+    <li> <%= link_to "Add a Book", new_book_path %> </li>
+    <% end %>
+  </ul>
+  <ul id="dropdown_series" class="dropdown-content">
+    <li><a href="#!">All Series</a></li>
+    <% if current_user %>
+    <li><a href="#!">All Books by Series</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">Add a Series</a></li>
+    <% end %>
+  </ul>
+  <ul id="dropdown_brands" class="dropdown-content">
+    <li><a href="#!">All Brands</a></li>
+    <li><a href="#!">All Books by Brand</a></li>
+    <li class="divider"></li>
+    <% if current_user %>
+    <li><a href="#!">Add a Brand</a></li>
+    <% end %>
+  </ul>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">COMIC BOOK COLLECTOR</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown_books">Books<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown_series">Series<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown_brands">Brands<i class="material-icons right">arrow_drop_down</i></a></li>
+        <% if current_user %>
+        <li>Welcome, <%= current_user.username %></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Login", login_path %> </li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+</body>
+
 </html>

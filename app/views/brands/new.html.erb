@@ -1,0 +1,8 @@
+<h3>Create a new Brand at <%= @brand.name %> here!</h3>
+
+<%= form_for @brand do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.submit %>
+<% end %>

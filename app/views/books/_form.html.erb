@@ -1,0 +1,34 @@
+
+<!-- <p class="no_float"> -->
+
+  <div class="page_button">
+    <%= link_to "Back To Books", books_path %>
+    <%= link_to "Add New Series",  new_series_path%>
+    <%= link_to "Add New Brand",  new_brand_path%>
+  </div><br>
+
+<div class="row">
+  <div class="col s4">
+    <%= form_for @book do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :series %><br>
+    <%= f.collection_select :series_id, @series, :id, :name, { prompt: "Choose a Series" }, class: "browser-default"%><br>
+
+    <%= f.label :issue_number %><br>
+    <%= f.text_field :issue_number %><br>
+
+    <%= f.label :image_url %><br>
+    <%= f.text_field :img_url %><br>
+
+    <%= f.label :brand %><br>
+    <%= f.collection_select :brand_id, @brands, :id, :name, { prompt: "Choose a Brand" }, class: "browser-default" %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>

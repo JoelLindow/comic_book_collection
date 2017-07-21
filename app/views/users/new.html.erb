@@ -1,0 +1,15 @@
+<h5 class ="page_header">Create An Account</h5>
+
+<div class="row">
+  <div class="col s4">
+    <%= form_for @user do |f| %>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+
+    <%= f.submit "Create Account" %>
+    <% end %>
+  </div>
+</div>

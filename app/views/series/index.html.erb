@@ -1,0 +1,8 @@
+<h3>All Series</h3>
+<p class="no_float">
+  <%= link_to "Add New Book",  new_book_path, method: :get %>
+  <%= link_to "See All Books",  books_path, method: :get %>
+</p>
+<% @series.each do |s| %>
+<%= s.name %><br>
+<% end %>

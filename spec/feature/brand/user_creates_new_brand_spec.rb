@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "User creates a new brand" do
-  xit "a user can create a new brand for a book" do
+RSpec.feature "User creates a new brand", type: :feature do
+  scenario "a user can create a new brand for a book" do
     visit new_brand_path
 
     fill_in "brand[name]", with: "DC"

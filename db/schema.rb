@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719010147) do
+ActiveRecord::Schema.define(version: 20170721015440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,31 +23,39 @@ ActiveRecord::Schema.define(version: 20170719010147) do
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "series_id"
     t.index ["brand_id"], name: "index_books_on_brand_id"
+    t.index ["series_id"], name: "index_books_on_series_id"
   end
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
   end
 
+  create_table "series", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.integer "role"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users_books", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "books_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["books_id"], name: "index_users_books_on_books_id"
-    t.index ["users_id"], name: "index_users_books_on_users_id"
+    t.index ["book_id"], name: "index_users_books_on_book_id"
+    t.index ["user_id"], name: "index_users_books_on_user_id"
   end
 
   add_foreign_key "books", "brands"
-  add_foreign_key "users_books", "books", column: "books_id"
-  add_foreign_key "users_books", "users", column: "users_id"
+  add_foreign_key "users_books", "books"
+  add_foreign_key "users_books", "users"
 end

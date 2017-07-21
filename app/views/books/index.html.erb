@@ -1,0 +1,15 @@
+<h3 class="page_header">All Books in our Database</h3>
+<p class="page_link_banner">  <%= link_to "Add New Book", new_book_path, method: :get %></p>
+
+<% @books.each do |book| %>
+  <div class="col s4">
+    <div class="book_preview">
+      <%= link_to book.title, book_path(book) %><br>
+      
+      Brand: <small> <%= book.brand.name %> </small><br>
+      Series:<small> <%= book.series.name %><br> </small>
+      Issue: <%= book.issue_number %><br>
+      <%= image_tag book.img_url, :class => "img_preview" %><br>
+    </div>
+</div>
+<% end %>
