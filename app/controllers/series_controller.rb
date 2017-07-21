@@ -1,6 +1,8 @@
 class SeriesController < ApplicationController
-  before_action :logged_in, only: [:new, :edit, :create, :update]
+  before_action :logged_in, only: [:new, :create]
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
 
+  #make edit, update and destroy
   def index
     @series = Series.all
   end

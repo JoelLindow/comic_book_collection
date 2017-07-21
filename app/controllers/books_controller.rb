@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :logged_in, only: [:new, :edit, :create, :update]
+  before_action :authorize_admin, only: [:destroy]
 
   def index
     @books = Book.all
@@ -44,6 +45,12 @@ class BooksController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
   end
 
   private

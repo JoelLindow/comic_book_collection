@@ -1,6 +1,9 @@
 class BrandsController < ApplicationController
   before_action :logged_in, only: [:new, :create]
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
 
+
+  #add edit and update methods
   def index
     @brands = Brand.all
   end
