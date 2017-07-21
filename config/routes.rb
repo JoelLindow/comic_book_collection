@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'books#index'
 
   resources :brands, only: [:new, :index, :create, :show, :destroy]
 
