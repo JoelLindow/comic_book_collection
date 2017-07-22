@@ -1,7 +1,6 @@
 <h3 class="page_header">All Books in <%= current_user.username %>'s Collection</h3>
 
 <% if current_user.books.present? %>
-<h3>HERE ARE YOUR BOOKS</h3>
 <% @books.each do |book| %>
 <div class="col s4">
   <div class="book_preview">
