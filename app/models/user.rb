@@ -8,6 +8,6 @@ class User < ApplicationRecord
   enum role: [:member, :admin]
 
   def ten_recent_books
-    books.ten_recent
+    books.last(9)
   end
 end

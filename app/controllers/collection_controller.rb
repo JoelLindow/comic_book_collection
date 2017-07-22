@@ -13,4 +13,9 @@ class CollectionController < ApplicationController
     end
     redirect_to books_path
   end
+
+  def destroy
+    current_user.books.delete(Book.find(params[:book_id]))
+    redirect_to collection_path
+  end
 end

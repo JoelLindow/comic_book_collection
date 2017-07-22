@@ -40,7 +40,6 @@ html {
   color: gray;
   font-size: 20px;
   letter-spacing: 4px;
-
 }
 
 .brand-logo {
@@ -61,25 +60,6 @@ html {
   height: 100px;
   width: 75px;
 }
-
-
-/*.header_banner {
-background-color: black;
-padding: 3px;
-letter-spacing: 2px;
-}*/
-
-/*.header_brand {
-margin-top: 2px;
-margin-bottom: 2px;
-color: white;
-text-shadow: 2px 2px red;
-}*/
-
-/*.header_slogan {
-margin: 2px;
-color: lightgrey;
-}*/
 
 .page_link_banner {
   background-color: black;
@@ -112,12 +92,6 @@ footer {
   width: 100%;
   overflow:hidden;
 }
-/*
-.col {
-border-color: black;
-border-width: thin;
-border-style: solid;
-}*/
 
 .img_preview {
   height: 330px;

@@ -26,7 +26,6 @@
   <ul id="dropdown_series" class="dropdown-content">
     <li> <%= link_to "All Series", series_index_path %></li>
     <% if current_user %>
-    <li> <%= link_to "All Books by Series", series_index_path %></li>
     <li class="divider"></li>
     <li><%= link_to "Add a Series", new_series_path %></li>
     <% end %>

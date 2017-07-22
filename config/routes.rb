@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   get '/collection', to: 'collection#index'
 
-  get '/collection/:book_id', to: 'collection#new'
+  get '/collection/add/:book_id', to: 'collection#new'
+  get '/collection/delete/:book_id', to: 'collection#destroy'
 end

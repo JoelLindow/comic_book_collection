@@ -11,6 +11,7 @@
     Series:<small> <%= book.series.name %><br> </small>
     Issue: <%= book.issue_number %><br>
     <%= image_tag book.img_url, :class => "img_preview" %><br>
+    <%= link_to "Remove", "/collection/delete/#{book.id}" %>
   </div>
 </div>
 <% end %>
