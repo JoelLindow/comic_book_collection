@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :books, through: :users_books
 
   enum role: [:member, :admin]
+
+  def ten_recent_books
+    books.ten_recent
+  end
 end
