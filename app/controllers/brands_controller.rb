@@ -2,8 +2,6 @@ class BrandsController < ApplicationController
   before_action :logged_in, only: [:new, :create]
   before_action :authorize_admin, only: [:edit, :update, :destroy]
 
-
-  #add edit and update methods
   def index
     @brands = Brand.all
   end
@@ -14,13 +12,6 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
-  end
-
-  def destroy
-    brand = Brand.find(params[:id])
-    brand.destroy
-    # flash[:success] = "#{brand.name} was successfully deleted!"
-    redirect_to brands_path
   end
 
   def create

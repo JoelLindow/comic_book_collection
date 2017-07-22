@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "User edits a book" do
   scenario " they see the info for the edited book" do
+    user = User.create!(username: "Bruce", password: "1234")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     series = Series.create!(name: "The Dark Knight Returns")
     brand = Brand.create!(name: "DC")
     book = Book.create!(title: "Batman Adventures",
@@ -18,8 +20,6 @@ RSpec.feature "User edits a book" do
     expect(page).to have_content("1")
     expect(page).to have_content("DC")
     expect(page).to have_content("Fun fun fun")
-
-    # save_and_open_page
 
     click_on "Edit Book Information"
 
