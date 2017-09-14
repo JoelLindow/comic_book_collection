@@ -1,27 +1,8 @@
 https://stormy-falls-74498.herokuapp.com/
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # comic_book_collection
+
+This is a Rails CRUD project. I have used this project as a vehicle to learn about the following concepts:
+* CRUD
+* Many to Many relationships in a PostgreSQL database using Active Record
+* Materialize Framework
